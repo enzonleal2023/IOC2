@@ -33,7 +33,7 @@ def get_current_username(credentials: Annotated[HTTPBasicCredentials, Depends(se
 async def root(username: Annotated[str, Depends(get_current_username)]):
     return RedirectResponse(url="/docs")
 
-@app.get("/ips", )
+@app.get("/ips")
 async def read_ips():
     script_dir = os.path.dirname(__file__)
     db = os.path.join(script_dir, 'attackers_ips.db')
